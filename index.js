@@ -8,7 +8,10 @@ const PORT = process.env.PORT || 3000
 // middleware add karna
 app.use(express.json())
 const fileupload = require("express-fileupload")
-app.use(fileupload());
+app.use(fileupload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 
 // db connection 
 const dbConnect = require("./config/database")
